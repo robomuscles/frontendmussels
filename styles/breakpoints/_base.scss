@@ -180,7 +180,7 @@ RESPONSIVE NAV
 	&:focus {
 		text-decoration: none;
 	}
-	
+
 	&:before {
 		content:'\2261';
 		font-size: 24px;
@@ -211,16 +211,10 @@ MAIN PAGE
 	margin-top: 1.5em;
 }
 
-// slider
-.slider {
-	margin-bottom: 30px;
-}
-
-.image-slider {
-	max-height: 400px;
-
+.map {
+	text-align: center;
 	img {
-		width: 100%;
+		width: 80%;
 	}
 }
 
