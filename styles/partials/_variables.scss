@@ -5,11 +5,13 @@ Variables
 ******************************************************************/
 
 $black:             #231f20;
-$white:             #fff;
+$white:             #fffffe;
+$light-gray:        #d5d5d1;
+$gray:              #313433;
+$aqua:              #347f7d;
+$lightaqua:         #c3f4ee;
 
-$light-gray:        #f8f9fa;
-$gray:              #eaedf2;
-$text-color:        #5c6b80;
+$text-color:        $white;
 
 $link-color:        $black;
 $link-hover:        darken($link-color, 9%);
