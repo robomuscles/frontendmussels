@@ -27,10 +27,10 @@
      * Load some data
      * @return {Object} Returned object
      */
-    // QueryService.query('GET', 'posts', {}, {})
-    //   .then(function(ovocie) {
-    //     self.ovocie = ovocie.data;
-    //   });
+    QueryService.query('GET', 'robomussel/USA/Alegria', {}, {})
+      .then(function(ovocie) {
+        self.ovocie = ovocie.data;
+      });
   }
 
 
