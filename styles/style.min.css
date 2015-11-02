@@ -115,8 +115,7 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .nav li a{border-bottom:0}
 .nav li a:focus,.nav li a:hover{color:#fffffe;text-decoration:underline}
 }
-@media only screen and (min-width:1030px){.container{width:1040px;margin:0 auto}
-#inner-header{width:1000px}
+@media only screen and (min-width:1030px){#inner-header{width:1000px}
 #logo,.main-nav{display:block}
 .hamburger,.responsive-nav{display:none}
 }
