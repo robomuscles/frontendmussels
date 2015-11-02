@@ -28,8 +28,8 @@
      * @return {Object} Returned object
      */
     QueryService.query('GET', 'robomussel/USA/Alegria', {}, {})
-      .then(function(ovocie) {
-        self.ovocie = ovocie.data;
+      .then(function(filteroptions) {
+        self.filteroptions = filteroptions.data.message;
       });
   }
 
