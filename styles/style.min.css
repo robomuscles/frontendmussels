@@ -110,7 +110,6 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 #logo,.main-nav{display:block}
 .hamburger,.responsive-nav{display:none}
 }
-.dimmed{opacity:.5}
 @media print{blockquote,img,pre,tr{page-break-inside:avoid}
 *{background:0 0!important;color:#000!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important}
 a,a:visited{color:#444!important;text-decoration:underline}

@@ -7,6 +7,15 @@
 <div class="container filters" ng-controller="MainController">
 
   Biomimic
+  <ui-select ng-model="main.selectedBiomimic">
+  	<ui-select-match>
+		{{$select.selected.name}}
+	</ui-select-match>
+ 	<ui-select-choices repeat="bimimic in (main.biomimicOptions | filter: $select.search)">
+ 		{{biomimic}}
+	</ui-select-choices>
+	</ui-select>
+
   <select
     ng-model="main.selectedBiomimic"
     ng-change="main.showCountryOptions()">
