@@ -48,6 +48,7 @@
 
     // region options
     self.showRegionOptions = function () {
+      self.selectedRegion = undefined;
       var url = 'filter/region?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry;
       QueryService.query('GET', url, {}, {})
         .then(function(regionOptions) {
@@ -57,6 +58,7 @@
 
     // site site options
     self.showSiteOptions = function () {
+      self.selectedSite = undefined;
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry + '&region=' + self.selectedRegion;
       var url = 'filter/location' + queries;
       QueryService.query('GET', url, {}, {})
@@ -67,6 +69,7 @@
 
     // show zone options
     self.showZoneOptions = function () {
+      self.selectedZone = undefined;
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry + '&region=' + self.selectedRegion + '&location=' + self.selectedSite;
       var url = 'filter/zone' + queries;
       QueryService.query('GET', url, {}, {})
@@ -77,6 +80,7 @@
 
     // show subzone options
     self.showSubzoneOptions = function () {
+      self.selectedSubzone = undefined;
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry
         + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone;
       var url = 'filter/subzone' + queries;
@@ -88,6 +92,7 @@
 
     // show wave exposure options
     self.showWaveExpOptions = function () {
+      self.selectedWaveExp = undefined;
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry
         + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone + '&subzone=' + self.selectedSubzone;
       var url = 'filter/waveexp' + queries;
