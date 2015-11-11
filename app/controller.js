@@ -39,6 +39,7 @@
 
     // country options
     self.showCountryOptions = function () {
+      self.selectedCountry = undefined;
       QueryService.query('GET', 'filter/country?biomimic=' + self.selectedBiomimic, {}, {})
         .then(function(countryOptions) {
           self.countryOptions = countryOptions.data.message;

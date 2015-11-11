@@ -7,87 +7,84 @@
 <div class="container filters" ng-controller="MainController">
 
   Biomimic
-  <ui-select ng-model="main.selectedBiomimic">
+  <ui-select ng-model="main.selectedBiomimic"
+  ng-change="main.showCountryOptions()">
   	<ui-select-match>
-		{{$select.selected.name}}
+		{{$select.selected}}
 	</ui-select-match>
- 	<ui-select-choices repeat="bimimic in (main.biomimicOptions | filter: $select.search)">
+ 	<ui-select-choices repeat="biomimic in (main.biomimicOptions | filter: $select.search)">
  		{{biomimic}}
 	</ui-select-choices>
 	</ui-select>
 
-  <select
-    ng-model="main.selectedBiomimic"
-    ng-change="main.showCountryOptions()">
-    <option
-      ng-repeat="biomimic in main.biomimicOptions"
-      ng-selected="{{biomimc==main.selectedBiomimic}}"
-      value="{{biomimic}}">
-      {{biomimic}}
-    </option>
-  </select>
-
   <div ng-hide="!main.selectedBiomimic">
     Country
-    <select
+
+      <ui-select 
       ng-model="main.selectedCountry"
-      ng-change="main.showRegionOptions()">
-      <option
-        ng-repeat="country in main.countryOptions"
-        ng-selected="{{country==main.selectedCountry}}"
-        value="{{country}}">
-        {{country}}
-      </option>
-    </select>
+  	  ng-change="main.showRegionOptions()">
+  	<ui-select-match>
+		{{$select.selected}}
+	</ui-select-match>
+ 	<ui-select-choices repeat="country in (main.countryOptions | filter: $select.search)">
+ 		{{country}}
+	</ui-select-choices>
+	</ui-select>
+
+	  
 
     <div
       class="filter-option"
-      ng-class="{'dimmed': !main.selectedCountry}"
-      ng-disabled="!main.selectedCountry">
+      ng-class="{'dimmed': !main.selectedCountry}">
       Region
-      <select
-        ng-model="main.selectedRegion"
-        ng-disabled="!main.selectedCountry"
-        ng-change="main.showSiteOptions()">
-        <option
-          ng-repeat="region in main.regionOptions"
-          ng-selected="{{region==main.selectedRegion}}"
-          value="{{region}}">
-          {{region}}
-        </option>
-      </select>
+      <ui-select 
+	  	ng-model="main.selectedRegion"
+  	  	ng-change="main.showSiteOptions()"
+  	  	ng-disabled="!main.selectedCountry">
+  			<ui-select-match>
+				{{$select.selected}}
+			</ui-select-match>
+ 			<ui-select-choices 
+ 				repeat="region in (main.regionOptions | filter: $select.search)">
+ 				{{region}}
+			</ui-select-choices>
+	   </ui-select>
     </div>
 
     <div
       class="filter-option"
-      ng-class="{'dimmed': !main.selectedRegion}"
-      ng-disabled="!main.selectedRegion">
+      ng-class="{'dimmed': !main.selectedRegion}">
       Site
-      <select
-        ng-model="main.selectedSite"
-        ng-disabled="!main.selectedRegion"
-        ng-change="main.showZoneOptions()">
-        <option
-          ng-repeat="site in main.siteOptions"
-          ng-selected="{{site==main.selectedSite}}"
-          value="{{site}}">
-          {{site}}
-        </option>
-      </select>
+
+      <ui-select 
+	  	ng-model="main.selectedSite"
+  	  	ng-change="main.showZoneOptions()"
+  	  	ng-disabled="!main.selectedRegion">
+  			<ui-select-match>
+				{{$select.selected}}
+			</ui-select-match>
+ 			<ui-select-choices 
+ 				repeat="site in (main.siteOptions | filter: $select.search)">
+ 				{{site}}
+			</ui-select-choices>
+	   </ui-select>
+      
     </div>
   </div>
 
 <div ng-hide="!main.selectedSite">
     Zone
-    <select
-      ng-model="main.selectedZone"
-      ng-change="main.showSubzoneOptions()">
-      <option
-        ng-repeat="zone in main.zoneOptions"
-        ng-selected="{{zone==main.selectedZone}}"
-        value="{{zone}}">
-        {{zone}}
-      </option>
+    <ui-select 
+	  	ng-model="main.selectedZone"
+  	  	ng-change="main.showSubzoneOptions()">
+  			<ui-select-match>
+				{{$select.selected}}
+			</ui-select-match>
+ 			<ui-select-choices 
+ 				repeat="zone in (main.zoneOptions | filter: $select.search)">
+ 				{{zone}}
+			</ui-select-choices>
+	   </ui-select>
     </select>
 
     <div
@@ -95,17 +92,18 @@
       ng-class="{'dimmed': !main.selectedZone}"
       ng-disabled="!main.selectedZone">
       Subzone
-      <select
-        ng-model="main.selectedSubzone"
-        ng-disabled="!main.selectedZone"
-        ng-change="main.showWaveExpOptions()">
-        <option
-          ng-repeat="subzone in main.subzoneOptions"
-          ng-selected="{{subzone==main.selectedSubzone}}"
-          value="{{subzone}}">
-          {{subzone}}
-        </option>
-      </select>
+      <ui-select 
+	  	ng-model="main.selectedSubzone"
+  	  	ng-change="main.showWaveExpOptions()"
+  	  	ng-disabled="!main.selectedZone">
+  			<ui-select-match>
+				{{$select.selected}}
+			</ui-select-match>
+ 			<ui-select-choices 
+ 				repeat="subzone in (main.subzoneOptions | filter: $select.search)">
+ 				{{subzone}}
+			</ui-select-choices>
+	   </ui-select>
     </div>
 
     <div
@@ -113,16 +111,17 @@
       ng-class="{'dimmed': !main.selectedSubzone}"
       ng-disabled="!main.selectedSubzone">
       Wave Exposure
-      <select
-        ng-model="main.selectedWaveExp"
-        ng-disabled="!main.selectedSubzone">
-        <option
-          ng-repeat="waveExp in main.waveExpOptions"
-          ng-selected="{{waveExp==main.selectedWaveExp}}"
-          value="{{waveExp}}">
-          {{waveExp}}
-        </option>
-      </select>
+      <ui-select 
+	  	ng-model="main.selectedWaveExp"
+  	  	ng-disabled="!main.selectedSubzone">
+  			<ui-select-match>
+				{{$select.selected}}
+			</ui-select-match>
+ 			<ui-select-choices 
+ 				repeat="waveexp in (main.waveExpOptions | filter: $select.search)">
+ 				{{waveexp}}
+			</ui-select-choices>
+	   </ui-select>
     </div>
   </div>
 
