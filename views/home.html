@@ -7,14 +7,115 @@
 <div class="container filters" ng-controller="MainController">
 
   Biomimic
-  <select ng-model="main.selectedBiomimic">
+  <select
+    ng-model="main.selectedBiomimic"
+    ng-change="main.showCountryOptions()">
     <option
       ng-repeat="biomimic in main.biomimicOptions"
-      ng-selected="{{biomimc==main.selectedBiomimic"
+      ng-selected="{{biomimc==main.selectedBiomimic}}"
       value="{{biomimic}}">
       {{biomimic}}
     </option>
   </select>
+
+  <div ng-hide="!main.selectedBiomimic">
+    Country
+    <select
+      ng-model="main.selectedCountry"
+      ng-change="main.showRegionOptions()">
+      <option
+        ng-repeat="country in main.countryOptions"
+        ng-selected="{{country==main.selectedCountry}}"
+        value="{{country}}">
+        {{country}}
+      </option>
+    </select>
+
+    <div
+      class="filter-option"
+      ng-class="{'dimmed': !main.selectedCountry}"
+      ng-disabled="!main.selectedCountry">
+      Region
+      <select
+        ng-model="main.selectedRegion"
+        ng-disabled="!main.selectedCountry"
+        ng-change="main.showSiteOptions()">
+        <option
+          ng-repeat="region in main.regionOptions"
+          ng-selected="{{region==main.selectedRegion}}"
+          value="{{region}}">
+          {{region}}
+        </option>
+      </select>
+    </div>
+
+    <div
+      class="filter-option"
+      ng-class="{'dimmed': !main.selectedRegion}"
+      ng-disabled="!main.selectedRegion">
+      Site
+      <select
+        ng-model="main.selectedSite"
+        ng-disabled="!main.selectedRegion"
+        ng-change="main.showZoneOptions()">
+        <option
+          ng-repeat="site in main.siteOptions"
+          ng-selected="{{site==main.selectedSite}}"
+          value="{{site}}">
+          {{site}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+<div ng-hide="!main.selectedSite">
+    Zone
+    <select
+      ng-model="main.selectedZone"
+      ng-change="main.showSubzoneOptions()">
+      <option
+        ng-repeat="zone in main.zoneOptions"
+        ng-selected="{{zone==main.selectedZone}}"
+        value="{{zone}}">
+        {{zone}}
+      </option>
+    </select>
+
+    <div
+      class="filter-option"
+      ng-class="{'dimmed': !main.selectedZone}"
+      ng-disabled="!main.selectedZone">
+      Subzone
+      <select
+        ng-model="main.selectedSubzone"
+        ng-disabled="!main.selectedZone"
+        ng-change="main.showWaveExpOptions()">
+        <option
+          ng-repeat="subzone in main.subzoneOptions"
+          ng-selected="{{subzone==main.selectedSubzone}}"
+          value="{{subzone}}">
+          {{subzone}}
+        </option>
+      </select>
+    </div>
+
+    <div
+      class="filter-option"
+      ng-class="{'dimmed': !main.selectedSubzone}"
+      ng-disabled="!main.selectedSubzone">
+      Wave Exposure
+      <select
+        ng-model="main.selectedWaveExp"
+        ng-disabled="!main.selectedSubzone">
+        <option
+          ng-repeat="waveExp in main.waveExpOptions"
+          ng-selected="{{waveExp==main.selectedWaveExp}}"
+          value="{{waveExp}}">
+          {{waveExp}}
+        </option>
+      </select>
+    </div>
+  </div>
 
 
 
