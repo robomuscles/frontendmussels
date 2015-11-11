@@ -26,7 +26,8 @@
 
 		<!-- CSS -->
 		<!-- build:css css/style.min.css -->
-		<link rel="stylesheet" href="libraries/bootstrap_library/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+		<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
 		<!-- endbuild -->
 
@@ -51,20 +52,21 @@
 	<script type="text/javascript" src="js/nonangular/jquery-1.11.2.min.js"></script>
 	<!-- endbuild -->
 
+	<!-- Non-angular libraries -->
+	<!-- build:libs js/libs.js -->
+	<script type="text/javascript" src="js/nonangular/lodash.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	<!-- endbuild -->
 
 	<!-- Angular external libraries for application -->
 	<!-- build:angularlibs js/angularlibs.js -->
 	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 	<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-ui-select/dist/select.js"></script>
 	<!-- endbuild -->
 
-	<!-- Non-angular libraries -->
-	<!-- build:libs js/libs.js -->
-	<script type="text/javascript" src="js/nonangular/lodash.min.js"></script>
-	<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
-	<!-- endbuild -->
 
 	<!-- Angular components -->
 	<!-- build:appcomponents js/appcomponents.js -->

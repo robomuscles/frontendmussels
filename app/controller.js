@@ -20,17 +20,17 @@
     var self = this;
 
 
-    ////////////  function definitions
-
-
     /**
      * Load some data
      * @return {Object} Returned object
      */
-    QueryService.query('GET', 'robomussel/USA/Alegria', {}, {})
-      .then(function(filteroptions) {
-        self.filteroptions = filteroptions.data.message;
-      });
+    QueryService.query('GET', 'filter/biomimic', {}, {})
+      .then(function(biomimicOptions) {
+        self.biomimicOptions = biomimicOptions.data.message;
+    });
+
+    self.selectedBiomimic = undefined;
+
   }
 
 

@@ -18,7 +18,9 @@
   angular
     .module('boilerplate', [
       'ngRoute',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'ui.select',
+      'ngSanitize'
     ])
     .config(config);
 

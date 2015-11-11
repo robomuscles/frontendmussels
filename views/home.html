@@ -5,6 +5,17 @@
 </div>
 
 <div class="container filters" ng-controller="MainController">
-  This is an example of how to get the data from the controller
-  {{main.filteroptions}}
+
+  Biomimic
+  <select ng-model="main.selectedBiomimic">
+    <option
+      ng-repeat="biomimic in main.biomimicOptions"
+      ng-selected="{{biomimc==main.selectedBiomimic"
+      value="{{biomimic}}">
+      {{biomimic}}
+    </option>
+  </select>
+
+
+
 </div>
