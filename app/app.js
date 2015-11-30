@@ -53,10 +53,10 @@
         controller: 'ResultsController',
         controllerAs: 'res'
       })
-      .when('/setup', {
-        templateUrl: 'views/setup.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .when('/upload', {
+        templateUrl: 'views/upload.html',
+        controller: 'UploadController',
+        controllerAs: 'upl'
       })
       .otherwise({
         redirectTo: '/'
