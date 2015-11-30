@@ -11,7 +11,7 @@
   angular
   	.module('boilerplate')
     .constant('CONSTANTS', {
-      'API_URL': 'http://robodb01.blieberman.me:3000/'
+      'API_URL': '//api.robo.blieberman.me/'
     });
 
 

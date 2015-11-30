@@ -20,7 +20,8 @@
       'ngRoute',
       'ui.bootstrap',
       'ui.select',
-      'ngSanitize'
+      'ngSanitize',
+      'ng-bootstrap-datepicker'
     ])
     .config(config);
 
@@ -46,10 +47,11 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .when('/contact', {
-        templateUrl: 'views/contact.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      // /:country/:region/:site/:zone/:subzone/:wavexp/:startDate/:endDate
+      .when('/results/:biomimic', {
+        templateUrl: 'views/results.html',
+        controller: 'ResultsController',
+        controllerAs: 'res'
       })
       .when('/setup', {
         templateUrl: 'views/setup.html',

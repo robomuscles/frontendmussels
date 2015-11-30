@@ -5,11 +5,11 @@
  * or you can have separate controllers for each logical section
  *
  */
-;(function() {
+ ;(function() {
 
   angular
-    .module('boilerplate')
-    .controller('MainController', MainController);
+  .module('boilerplate')
+  .controller('MainController', MainController);
 
   MainController.$inject = ['LocalStorage', 'QueryService'];
 
@@ -24,6 +24,15 @@
     self.selectedZone = undefined;
     self.selectedSubzone = undefined;
     self.selectedWaveExp = undefined;
+    self.startDate = undefined;
+    self.endDate = undefined;
+
+    self.datepickerOptions =
+    {
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      weekstart: 0
+    }
 
     /**
      * Load some data
@@ -33,17 +42,20 @@
 
     // biomimic options loaded on page load
     QueryService.query('GET', 'filter/biomimic', {}, {})
-      .then(function(biomimicOptions) {
-        self.biomimicOptions = biomimicOptions.data.message;
+    .then(function(biomimicOptions) {
+      self.biomimicOptions = biomimicOptions.data.message;
     });
 
     // country options
     self.showCountryOptions = function () {
       self.selectedCountry = undefined;
       QueryService.query('GET', 'filter/country?biomimic=' + self.selectedBiomimic, {}, {})
-        .then(function(countryOptions) {
-          self.countryOptions = countryOptions.data.message;
+      .then(function(countryOptions) {
+        self.countryOptions = countryOptions.data.message;
       })
+      var url = 'results/' + self.selectedBiomimic; 
+      $('#results').append("<a href='"+url+"'>Go Here!</a>");
+      $('#results').append("Hello");
     };
 
     // region options
@@ -51,8 +63,8 @@
       self.selectedRegion = undefined;
       var url = 'filter/region?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry;
       QueryService.query('GET', url, {}, {})
-        .then(function(regionOptions) {
-          self.regionOptions = regionOptions.data.message;
+      .then(function(regionOptions) {
+        self.regionOptions = regionOptions.data.message;
       });
     };
 
@@ -62,8 +74,8 @@
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry + '&region=' + self.selectedRegion;
       var url = 'filter/location' + queries;
       QueryService.query('GET', url, {}, {})
-        .then(function(siteOptions) {
-          self.siteOptions = siteOptions.data.message;
+      .then(function(siteOptions) {
+        self.siteOptions = siteOptions.data.message;
       });
     };
 
@@ -73,8 +85,8 @@
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry + '&region=' + self.selectedRegion + '&location=' + self.selectedSite;
       var url = 'filter/zone' + queries;
       QueryService.query('GET', url, {}, {})
-        .then(function(zoneOptions) {
-          self.zoneOptions = zoneOptions.data.message;
+      .then(function(zoneOptions) {
+        self.zoneOptions = zoneOptions.data.message;
       });
     };
 
@@ -82,11 +94,11 @@
     self.showSubzoneOptions = function () {
       self.selectedSubzone = undefined;
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry
-        + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone;
+      + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone;
       var url = 'filter/subzone' + queries;
       QueryService.query('GET', url, {}, {})
-        .then(function(subzoneOptions) {
-          self.subzoneOptions = subzoneOptions.data.message;
+      .then(function(subzoneOptions) {
+        self.subzoneOptions = subzoneOptions.data.message;
       });
     };
 
@@ -94,15 +106,20 @@
     self.showWaveExpOptions = function () {
       self.selectedWaveExp = undefined;
       var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry
-        + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone + '&subzone=' + self.selectedSubzone;
+      + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone + '&subzone=' + self.selectedSubzone;
       var url = 'filter/waveexp' + queries;
       QueryService.query('GET', url, {}, {})
-        .then(function(waveExpOptions) {
-          self.waveExpOptions = waveExpOptions.data.message;
+      .then(function(waveExpOptions) {
+        self.waveExpOptions = waveExpOptions.data.message;
       });
     };
 
-  }
+    self.showResults = function () {
 
+
+
+    };
+
+  }
 
 })();

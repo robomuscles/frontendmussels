@@ -124,7 +124,18 @@
 	   </ui-select>
     </div>
   </div>
+</div>
 
 
+<div 
+  ng-hide="!main.selectedWaveExp">
+Start Date
+<input id="datepicker" type="text" data-ng-datepicker data-ng-options="main.datepickerOptions" data-ng-model="main.startDate">
+End Date
+<input ng-change="main.showResults()" id="datepicker" type="text" data-ng-datepicker data-ng-options="main.datepickerOptions" data-ng-model="main.endDate">
+</div>
+
+<div id="results">
+</div>
 
 </div>
