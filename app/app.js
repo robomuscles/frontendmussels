@@ -44,19 +44,15 @@
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        controller: 'MainController'
       })
-      // /:country/:region/:site/:zone/:subzone/:wavexp/:startDate/:endDate
-      .when('/results/:biomimic', {
+      .when('/results/:biomimic/:country/:region/:site/:zone/:subzone/:wavexp/:startDate/:endDate', {
         templateUrl: 'views/results.html',
-        controller: 'ResultsController',
-        controllerAs: 'res'
+        controller: 'ResultsController'
       })
       .when('/upload', {
         templateUrl: 'views/upload.html',
-        controller: 'UploadController',
-        controllerAs: 'upl'
+        controller: 'UploadController'
       })
       .otherwise({
         redirectTo: '/'

@@ -11,28 +11,34 @@
   .module('boilerplate')
   .controller('MainController', MainController);
 
-  MainController.$inject = ['LocalStorage', 'QueryService'];
+  MainController.$inject = ['$scope', 'LocalStorage', 'QueryService'];
 
 
-  function MainController(LocalStorage, QueryService) {
+  function MainController($scope, LocalStorage, QueryService) {
 
     // 'controller as' syntax
-    var self = this;
-    self.selectedBiomimic = undefined;
-    self.selectedCountry = undefined;
-    self.selectedRegion = undefined;
-    self.selectedZone = undefined;
-    self.selectedSubzone = undefined;
-    self.selectedWaveExp = undefined;
-    self.startDate = undefined;
-    self.endDate = undefined;
+    
+    
+    
 
-    self.datepickerOptions =
+    // var $scope = this;
+    $scope.filters = {};
+    $scope.filters.selectedBiomimic = undefined;
+    $scope.filters.selectedCountry = undefined;
+    $scope.filters.selectedRegion = undefined;
+    $scope.filters.selectedZone = undefined;
+    $scope.filters.selectedSubzone = undefined;
+    $scope.filters.selectedWaveExp = undefined;
+    $scope.filters.startDate = undefined;
+    $scope.filters.endDate = "2015-11-30";
+
+    $scope.datepickerOptions =
     {
       format: 'yyyy-mm-dd',
       autoclose: true,
       weekstart: 0
     }
+    
 
     /**
      * Load some data
@@ -43,82 +49,104 @@
     // biomimic options loaded on page load
     QueryService.query('GET', 'filter/biomimic', {}, {})
     .then(function(biomimicOptions) {
-      self.biomimicOptions = biomimicOptions.data.message;
+      $scope.biomimicOptions = biomimicOptions.data.message;
     });
 
     // country options
-    self.showCountryOptions = function () {
-      self.selectedCountry = undefined;
-      QueryService.query('GET', 'filter/country?biomimic=' + self.selectedBiomimic, {}, {})
+    $scope.showCountryOptions = function () {
+      $scope.filters.selectedCountry = undefined;
+      console.log($scope.filters.selectedBiomimic);
+      QueryService.query('GET', 'filter/country?biomimic=' + $scope.filters.selectedBiomimic, {}, {})
       .then(function(countryOptions) {
-        self.countryOptions = countryOptions.data.message;
+        $scope.countryOptions = countryOptions.data.message;
+
       })
-      var url = 'results/' + self.selectedBiomimic; 
-      $('#results').append("<a href='"+url+"'>Go Here!</a>");
-      $('#results').append("Hello");
     };
 
     // region options
-    self.showRegionOptions = function () {
-      self.selectedRegion = undefined;
-      var url = 'filter/region?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry;
+    $scope.showRegionOptions = function () {
+      $scope.filters.selectedRegion = undefined;
+      var url = 'filter/region?biomimic=' + $scope.filters.selectedBiomimic + '&country=' + $scope.filters.selectedCountry;
       QueryService.query('GET', url, {}, {})
       .then(function(regionOptions) {
-        self.regionOptions = regionOptions.data.message;
+        $scope.regionOptions = regionOptions.data.message;
       });
     };
 
     // site site options
-    self.showSiteOptions = function () {
-      self.selectedSite = undefined;
-      var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry + '&region=' + self.selectedRegion;
+    $scope.showSiteOptions = function () {
+      $scope.filters.selectedSite = undefined;
+      var queries = '?biomimic=' + $scope.filters.selectedBiomimic + '&country=' + $scope.filters.selectedCountry + '&region=' + $scope.filters.selectedRegion;
       var url = 'filter/location' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(siteOptions) {
-        self.siteOptions = siteOptions.data.message;
+        $scope.siteOptions = siteOptions.data.message;
       });
     };
 
     // show zone options
-    self.showZoneOptions = function () {
-      self.selectedZone = undefined;
-      var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry + '&region=' + self.selectedRegion + '&location=' + self.selectedSite;
+    $scope.showZoneOptions = function () {
+      $scope.filters.selectedZone = undefined;
+      var queries = '?biomimic=' + 
+      $scope.filters.selectedBiomimic + '&country=' + 
+      $scope.filters.selectedCountry + '&region=' + 
+      $scope.filters.selectedRegion + '&location=' + 
+      $scope.filters.selectedSite;
       var url = 'filter/zone' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(zoneOptions) {
-        self.zoneOptions = zoneOptions.data.message;
+        $scope.zoneOptions = zoneOptions.data.message;
       });
     };
 
     // show subzone options
-    self.showSubzoneOptions = function () {
-      self.selectedSubzone = undefined;
-      var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry
-      + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone;
+    $scope.showSubzoneOptions = function () {
+      $scope.filters.selectedSubzone = undefined;
+      var queries = '?biomimic=' + 
+      $scope.filters.selectedBiomimic + '&country=' + 
+      $scope.filters.selectedCountry + '&region=' + 
+      $scope.filters.selectedRegion + '&location=' + 
+      $scope.filters.selectedSite + '&zone=' + 
+      $scope.filters.selectedZone;
       var url = 'filter/subzone' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(subzoneOptions) {
-        self.subzoneOptions = subzoneOptions.data.message;
+        $scope.subzoneOptions = subzoneOptions.data.message;
       });
     };
 
     // show wave exposure options
-    self.showWaveExpOptions = function () {
-      self.selectedWaveExp = undefined;
-      var queries = '?biomimic=' + self.selectedBiomimic + '&country=' + self.selectedCountry
-      + '&region=' + self.selectedRegion + '&location=' + self.selectedSite + '&zone=' + self.selectedZone + '&subzone=' + self.selectedSubzone;
+    $scope.showWaveExpOptions = function () {
+      $scope.filters.selectedWaveExp = undefined;
+      var queries = '?biomimic=' + 
+      $scope.filters.selectedBiomimic + '&country=' + 
+      $scope.filters.selectedCountry + '&region=' + 
+      $scope.filters.selectedRegion + '&location=' + 
+      $scope.filters.selectedSite + '&zone=' + 
+      $scope.filters.selectedZone + '&subzone=' + 
+      $scope.filters.selectedSubzone;
       var url = 'filter/waveexp' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(waveExpOptions) {
-        self.waveExpOptions = waveExpOptions.data.message;
+        $scope.waveExpOptions = waveExpOptions.data.message;
       });
     };
 
-    self.showResults = function () {
 
-
-
-    };
+    $scope.$watch('filters.endDate', function(value){
+      console.log(value);
+      var url = '#/results/' + 
+      $scope.filters.selectedBiomimic + '/' + 
+      $scope.filters.selectedCountry + '/' + 
+      $scope.filters.selectedRegion  + '/' + 
+      $scope.filters.selectedSite + '/' + 
+      $scope.filters.selectedZone + '/' + 
+      $scope.filters.selectedSubzone + '/' + 
+      $scope.filters.selectedWaveExp  + '/' + 
+      $scope.filters.startDate + '/' + 
+      $scope.filters.endDate;
+      $('#results').html("<a href='"+url+"'>Go Here!</a>");
+    });
 
   }
 
