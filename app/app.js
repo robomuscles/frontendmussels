@@ -38,7 +38,7 @@
    */
   function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
 
-    $locationProvider.html5Mode(false);
+    
 
     // routes
     $routeProvider
@@ -59,6 +59,7 @@
       });
 
     $httpProvider.interceptors.push('authInterceptor');
+    $locationProvider.html5Mode(true);
 
   }
 
