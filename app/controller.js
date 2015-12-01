@@ -134,7 +134,17 @@
 
 
     $scope.$watch('filters.endDate', function(value){
-      console.log(value);
+      if($scope.filters.selectedWaveExp == "N/A"){
+        var url = '#/results/' + 
+      $scope.filters.selectedBiomimic + '/' + 
+      $scope.filters.selectedCountry + '/' + 
+      $scope.filters.selectedRegion  + '/' + 
+      $scope.filters.selectedSite + '/' + 
+      $scope.filters.selectedZone + '/' + 
+      $scope.filters.selectedSubzone + '/' + 
+      $scope.filters.startDate + '/' + 
+      $scope.filters.endDate;
+      }
       var url = '#/results/' + 
       $scope.filters.selectedBiomimic + '/' + 
       $scope.filters.selectedCountry + '/' + 
