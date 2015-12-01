@@ -50,16 +50,15 @@
         templateUrl: 'views/results.html',
         controller: 'ResultsController'
       })
-      .when('/upload', {
-        templateUrl: 'views/upload.html',
-        controller: 'UploadController'
+      .when('/results/:biomimic/:country/:region/:site/:zone/:subzone/:startDate/:endDate', {
+        templateUrl: 'views/results.html',
+        controller: 'ResultsController'
       })
       .otherwise({
         redirectTo: '/'
       });
 
     $httpProvider.interceptors.push('authInterceptor');
-    $locationProvider.html5Mode(true);
 
   }
 
