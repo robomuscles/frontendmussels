@@ -30,7 +30,7 @@
     $scope.filters.selectedSubzone = undefined;
     $scope.filters.selectedWaveExp = undefined;
     $scope.filters.startDate = undefined;
-    $scope.filters.endDate = "2015-11-30";
+    $scope.filters.endDate = undefined;
 
     $scope.datepickerOptions =
     {
@@ -134,28 +134,30 @@
 
 
     $scope.$watch('filters.endDate', function(value){
-      if($scope.filters.selectedWaveExp == "N/A"){
-        var url = '#/results/' + 
-      $scope.filters.selectedBiomimic + '/' + 
-      $scope.filters.selectedCountry + '/' + 
-      $scope.filters.selectedRegion  + '/' + 
-      $scope.filters.selectedSite + '/' + 
-      $scope.filters.selectedZone + '/' + 
-      $scope.filters.selectedSubzone + '/' + 
-      $scope.filters.startDate + '/' + 
-      $scope.filters.endDate;
+      if($scope.filters.endDate==undefined){
+
       }
-      var url = '#/results/' + 
-      $scope.filters.selectedBiomimic + '/' + 
-      $scope.filters.selectedCountry + '/' + 
-      $scope.filters.selectedRegion  + '/' + 
-      $scope.filters.selectedSite + '/' + 
-      $scope.filters.selectedZone + '/' + 
-      $scope.filters.selectedSubzone + '/' + 
-      $scope.filters.selectedWaveExp  + '/' + 
-      $scope.filters.startDate + '/' + 
-      $scope.filters.endDate;
-      $('#results').html("<a href='"+url+"'>Go Here!</a>");
+      else{
+        console.log($scope.filters.selectedWaveExp);
+        var url = '#/results';
+        var filterArray = [
+        $scope.filters.selectedBiomimic,
+        $scope.filters.selectedCountry, 
+        $scope.filters.selectedRegion,
+        $scope.filters.selectedSite,
+        $scope.filters.selectedZone,
+        $scope.filters.selectedSubzone,
+        $scope.filters.startDate, 
+        $scope.filters.endDate]
+        for (var i = 0; i < filterArray.length; i++){
+          if(!(filterArray[i] === "N/A")){
+            url+= "/" + encodeURIComponent(filterArray[i].trim())
+          }
+
+
+        }
+        $('#results').html("<a href='"+url+"'>Go Here!</a>");
+      }
     });
 
   }

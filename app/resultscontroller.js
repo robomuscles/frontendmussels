@@ -10,15 +10,14 @@
 	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
 		var self = this;
 		queryURL = 'data?biomimic=' +
-		$routeParams.biomimic + '&country=' +
-		$routeParams.country + '&region=' +
-		$routeParams.region + '&site=' +
-		$routeParams.site + '&zone=' +
+		$routeParams.biomimic +'&region=' +
+		$routeParams.region + '&zone=' +
 		$routeParams.zone + '&subzone=' +
-		$routeParams.subzone + ($routeParams.waveexp) ? '&waveexp=' +
-		$routeParams.waveexp :  + '&startDate=' +
+		$routeParams.subzone + '&startDate=' +
 		$routeParams.startDate + '&endDate=' +
-		$routeParams.endDate;
+		$routeParams.endDate + '&country=' +
+		$routeParams.country + '&location=' + 
+		$routeParams.site;
 		console.log(queryURL);
 
 
@@ -26,7 +25,6 @@
     .then(function(resultData) {
 
       $scope.resultData = resultData.data.message;
-      debugger;
       console.log(resultData);
     });
 
