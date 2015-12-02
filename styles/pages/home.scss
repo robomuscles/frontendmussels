@@ -14,10 +14,26 @@
 .dimmed {
   opacity: 0.5;
 }
-
+body{
+	font-size: $small;
+}
 .datepicker-days{
 	color:black;
 }
 input{
 	color:black;
+}
+
+button, a.link{
+	color: $aqua;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: $lightaqua;
+	padding:5px 15px;
+	display: inline-block;
+	margin:5px 0;
+	border-radius: 5px;
+	border: none;
+	border-bottom: 2px solid $aqua;
 }

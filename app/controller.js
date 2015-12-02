@@ -148,7 +148,8 @@
         $scope.filters.selectedZone,
         $scope.filters.selectedSubzone,
         $scope.filters.startDate, 
-        $scope.filters.endDate]
+        $scope.filters.endDate,
+        $scope.filters.selectedWaveExp]
         for (var i = 0; i < filterArray.length; i++){
           if(!(filterArray[i] === "N/A")){
             url+= "/" + encodeURIComponent(filterArray[i].trim())

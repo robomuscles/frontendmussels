@@ -50,7 +50,7 @@
       //   templateUrl: 'views/results.html',
       //   controller: 'ResultsController'
       // })
-      .when('/results/:biomimic/:country/:region/:site/:zone/:subzone/:startDate/:endDate', {
+      .when('/results/:biomimic/:country/:region/:site/:zone/:subzone/:startDate/:endDate/:waveexp?', {
         templateUrl: 'views/results.html',
         controller: 'ResultsController'
       })
