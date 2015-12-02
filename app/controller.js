@@ -157,7 +157,7 @@
 
 
         }
-        $('#results').html("<a href='"+url+"'>Go Here!</a>");
+        $('#results').html("<a class='link' href='"+url+"'>Go Here!</a>");
       }
     });
 

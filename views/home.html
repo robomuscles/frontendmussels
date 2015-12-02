@@ -1,40 +1,46 @@
-<h1>Biomimic data</h1>
+<h1>Biomimic Database</h1>
 
-<div class="container map">
+<!-- <div class="container map">
     <img src="images/World_Maps_International_20mil_1.jpg">
-</div>
+</div> -->
 
 <div class="container filters" ng-controller="MainController">
-<div>
-  Biomimic
-  <ui-select ng-model="filters.selectedBiomimic"
-  ng-change="showCountryOptions()">
-  	<ui-select-match>
-		{{$select.selected}}
-	</ui-select-match>
- 	<ui-select-choices repeat="biomimic in (biomimicOptions | filter: $select.search)">
- 		{{biomimic}}
-	</ui-select-choices>
-	</ui-select>
+  <div class="row">
+    <div class="col-xs-4">
+      <label>To get started, select a Biomimic</label>
+      <ui-select ng-model="filters.selectedBiomimic"
+      ng-change="showCountryOptions()">
+      <ui-select-match>
+      {{$select.selected}}
+    </ui-select-match>
+    <ui-select-choices repeat="biomimic in (biomimicOptions | filter: $select.search)">
+    {{biomimic}}
+  </ui-select-choices>
+</ui-select>
+</div>
+</div>
+<div class="row" ng-hide="!filters.selectedBiomimic">
+    
+<div class="col-xs-4">
+  <label>Country</label>
 
-  <div ng-hide="!filters.selectedBiomimic">
-    Country
-
-      <ui-select 
+  <ui-select 
       ng-model="filters.selectedCountry"
   	  ng-change="showRegionOptions()">
-  	<ui-select-match>
-		{{$select.selected}}
-	</ui-select-match>
- 	<ui-select-choices repeat="country in (countryOptions | filter: $select.search)">
- 		{{country}}
-	</ui-select-choices>
-	</ui-select>
 
+    <ui-select-match>
+	   {{$select.selected}}
+	  </ui-select-match>
+
+ 	  <ui-select-choices repeat="country in (countryOptions | filter: $select.search)">
+ 	  	{{country}}
+	  </ui-select-choices>
+	</ui-select>
+</div>
     <div
-      class="filter-option"
+      class="col-xs-4 filter-option"
       ng-class="{'dimmed': !filters.selectedCountry}">
-      Region
+      <label>Region</label>
       <ui-select 
 	  	ng-model="filters.selectedRegion"
   	  	ng-change="showSiteOptions()"
@@ -50,10 +56,9 @@
     </div>
 
     <div
-      class="filter-option"
+      class="col-xs-4 filter-option"
       ng-class="{'dimmed': !filters.selectedRegion}">
-      Site
-
+      <label>Site</label>
       <ui-select 
 	  	ng-model="filters.selectedSite"
   	  	ng-change="showZoneOptions()"
@@ -67,9 +72,11 @@
 			</ui-select-choices>
 	   </ui-select>
     </div>
+    </div>
 
-<div ng-hide="!filters.selectedSite">
-    Zone
+<div class="row" ng-hide="!filters.selectedSite">
+<div class="col-xs-4">
+    <label>Zone</label>
     <ui-select 
 	  	ng-model="filters.selectedZone"
   	  	ng-change="showSubzoneOptions()">
@@ -81,12 +88,12 @@
  				{{zone}}
 			</ui-select-choices>
 	   </ui-select>
-
+</div>
     <div
-      class="filter-option"
+      class="col-xs-4 filter-option"
       ng-class="{'dimmed': !filters.selectedZone}"
       ng-disabled="!filters.selectedZone">
-      Subzone
+      <label>Subzone</label>
       <ui-select 
 	  	ng-model="filters.selectedSubzone"
   	  	ng-change="showWaveExpOptions()"
@@ -102,10 +109,10 @@
     </div>
 
     <div
-      class="filter-option"
+      class="col-xs-4 filter-option"
       ng-class="{'dimmed': !filters.selectedSubzone}"
       ng-disabled="!filters.selectedSubzone">
-      Wave Exposure
+      <label>Wave Exposure</label>
       <ui-select 
 	  	ng-model="filters.selectedWaveExp"
   	  	ng-disabled="!filters.selectedSubzone">
@@ -120,11 +127,15 @@
     </div>
   </div>
 
-  <div ng-hide="!filters.selectedWaveExp">
-    Start Date
-    <input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="filters.startDate">
-    End Date
-    <input ng-change="showResults()" id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="filters.endDate">
+  <div class="row" ng-hide="!filters.selectedWaveExp">
+    <div class="col-xs-4">
+      <label>Start Date</label>
+      <input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="filters.startDate">
+    </div>
+    <div class="col-xs-4">
+      <label>End Date</label>
+      <input ng-change="showResults()" id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="filters.endDate">
+    </div>
   </div>
 
 <div id="results" >

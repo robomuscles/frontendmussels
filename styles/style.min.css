@@ -77,11 +77,10 @@ a:focus,a:hover,a:visited:focus,a:visited:hover{color:#0b090a;text-decoration:un
 .h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.hamburger:focus,.hamburger:hover,.main-nav li a,h1 a,h2 a,h3 a,h4 a,h5 a{text-decoration:none}
 a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .h1,.h2,.h3,.h4,.h5,h1,h2,h3,h4,h5{text-rendering:optimizelegibility;font-weight:500}
-.h4,button,h4{font-weight:700}
 .h1,h1{font-size:2.5em;line-height:1.333em}
 .h2,h2{font-size:1.75em;line-height:1.4em;margin-bottom:.375em}
 .h3,h3{font-size:1.75rem}
-.h4,h4{font-size:.875rem}
+.h4,h4{font-size:.875rem;font-weight:700}
 .header{background-color:#fffffe}
 #inner-header{width:100%;padding:0 50px}
 #inner-header a{font-size:14px;color:#231f20}
@@ -114,7 +113,10 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .dimmed{opacity:.5}
 body{font-size:14px}
 .datepicker-days,input{color:#000}
-button{color:#347f7d;font-size:1.2em;text-transform:uppercase;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d}
+a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;text-transform:uppercase;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d}
+label{font-size:18px}
+.btn span,.dropdown-menu,.ui-select-match{font-size:20px}
+.dropdown-menu{width:30%}
 @media print{blockquote,img,pre,tr{page-break-inside:avoid}
 *{background:0 0!important;color:#000!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important}
 a,a:visited{color:#444!important;text-decoration:underline}

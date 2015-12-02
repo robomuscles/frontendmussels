@@ -15,7 +15,7 @@
   opacity: 0.5;
 }
 body{
-	font-size: $small;
+	font-size: 18px;
 }
 .datepicker-days{
 	color:black;
@@ -36,4 +36,19 @@ button, a.link{
 	border-radius: 5px;
 	border: none;
 	border-bottom: 2px solid $aqua;
+}
+
+label{
+	font-size:18px;
+}
+.ui-select-match{
+	font-size:20px;
+}
+.dropdown-menu{
+	font-size:20px;
+	width: 30%;
+
+}
+.btn span{
+	font-size:20px;
 }

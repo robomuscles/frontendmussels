@@ -5,9 +5,23 @@
 	.controller('ResultsController', ResultsController);
 
 	ResultsController.$inject = ['$scope', 'LocalStorage', 'QueryService', '$routeParams'];
-
+	
 
 	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
+
+		$scope.biomimic = $routeParams.biomimic;
+		$scope.region = $routeParams.region;
+		$scope.zone = $routeParams.zone;
+		$scope.subzone = $routeParams.subzone;
+		$scope.startDate = $routeParams.startDate;
+		$scope.endDate = $routeParams.endDate;
+		$scope.country = $routeParams.country;
+		$scope.site = $routeParams.site;
+		$scope.waveexp = 'N/A';
+		if($routeParams.waveexp){
+			$scope.waveexp = $routeParams.waveexp;
+		}
+
 		var self = this;
 		queryURL = 'data?biomimic=' +
 		$routeParams.biomimic +'&region=' +
@@ -27,64 +41,66 @@
 		QueryService.query('GET', queryURL, {}, {})
 		.then(function(resultData) {
 			$scope.resultData = resultData.data.message;
-			var array = $scope.resultData;
+			if($scope.resultData.length==0){
+				$scope.alertType = "alert-info";
+				$scope.alertText = "No data available.";
+			} else{
+				$scope.alertType = "alert-success";
+				$scope.alertText = "Filtering Successful!";
+				
 
-			var str = '';
-			var line = '';
+				var array = $scope.resultData;
 
-			var head = array[0];
-			if ($("#quote").is(':checked')) {
-				for (var index in array[0]) {
-					var value = index + "";
-					line += '"' + value.replace(/"/g, '""') + '",';
-				}
-			} else {
-				for (var index in array[0]) {
-					line += index + ',';
-				}
-			}
-
-			line = line.slice(0, -1);
-			str += line + '\r\n';
-
-			for (var i = 0; i < array.length; i++) {
+				var str = '';
 				var line = '';
 
+				var head = array[0];
 				if ($("#quote").is(':checked')) {
-					for (var index in array[i]) {
-						var value = array[i][index] + "";
+					for (var index in array[0]) {
+						var value = index + "";
 						line += '"' + value.replace(/"/g, '""') + '",';
 					}
 				} else {
-					for (var index in array[i]) {
-						line += array[i][index] + ',';
+					for (var index in array[0]) {
+						line += index + ',';
 					}
 				}
 
 				line = line.slice(0, -1);
 				str += line + '\r\n';
-			}
-			$scope.CSVdata = str;
-			debugger;
-			return str;
 
+				for (var i = 0; i < array.length; i++) {
+					var line = '';
+
+					if ($("#quote").is(':checked')) {
+						for (var index in array[i]) {
+							var value = array[i][index] + "";
+							line += '"' + value.replace(/"/g, '""') + '",';
+						}
+					} else {
+						for (var index in array[i]) {
+							line += array[i][index] + ',';
+						}
+					}
+
+					line = line.slice(0, -1);
+					str += line + '\r\n';
+				}
+				$scope.CSVdata = str;
+				return str;
+			}
 
 		});
 
 		$('#download').on('click', function(){
 			window.open("data:text/csv;charset=utf-8," + escape($scope.CSVdata));
-		})
-
-		$scope.JSON2CSV = function (objArray) {
-			
-
-		}
+		});
 
 
 
 
 
 
-	}
+}
 
 } ) ();
