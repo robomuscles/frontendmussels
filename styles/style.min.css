@@ -116,7 +116,7 @@ body{font-size:18px;font-family:Roboto,sans-serif}
 .row{margin-bottom:25px}
 .datepicker-days,input{color:#000}
 a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d}
-a.link:after,button:after{content:'\25B6';float:right;font-size:18px;padding-top:2px}
+a.link:after,button:after{content:'\25B6';float:right;font-size:18px;padding-top:3px}
 a.link{width:100%}
 a.link:hover{text-decoration:none}
 label{font-size:18px}
@@ -125,6 +125,14 @@ label.begin{text-transform:none}
 .ui-select-match .btn{padding:3px 12px;color:#347f7d}
 .dropdown-menu{width:30%}
 .date input[type=text]{height:34px;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:0 12px;border:1px solid transparent;width:100%;color:#347f7d}
+.alert__filter{font-weight:600;display:inline-block;width:120px}
+.margin-bottom{margin-bottom:10px}
+.data-message,.no-data-message{display:none}
+.data-no .no-data-message,.data-success .data-message{display:block}
+.alert__filters{font-size:14px;margin-top:30px;display:none}
+.data-no .alert__filters,.data-success .alert__filters{display:block}
+.download{display:none}
+.download.data-success{display:block}
 @media print{blockquote,img,pre,tr{page-break-inside:avoid}
 *{background:0 0!important;color:#000!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important}
 a,a:visited{color:#444!important;text-decoration:underline}
@@ -139,3 +147,10 @@ h2,h3,p{orphans:3;widows:3}
 h2,h3{page-break-after:avoid}
 .page-navigation,.respond-form,.sidebar,.wp-prev-next,nav{display:none}
 }
+
+
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 97617f00b7a1008d83c795b3395d25c38ab802fd
