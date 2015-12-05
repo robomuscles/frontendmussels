@@ -1,14 +1,15 @@
 /**
  *
- * AngularJS Boilerplate
+ * RoboMussels Front End
  * @description           Description
- * @author                Jozef Butko // www.jozefbutko.com/resume
- * @url                   www.jozefbutko.com
- * @version               1.1.7
- * @date                  March 2015
+ * @author                Group 6 // github.com/robomuscles
+ * @url                   github.com/robomuscles
+ * @version               1.0
+ * @date                  December 2016
  * @license               MIT
  *
  */
+ 
 ;(function() {
 
 

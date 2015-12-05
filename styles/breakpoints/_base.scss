@@ -110,9 +110,11 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $white;
+	background-color: $aqua;
 }
-
+.home #inner-header a#home{
+	border-bottom:3px solid $white;
+}
 #inner-header {
 	width: 100%;
 	padding: 0 50px;
@@ -120,7 +122,13 @@ HEADER STYLES
 
 	a {
 		font-size: $small;
-		color: $black;
+		color: $white;
+		text-transform: uppercase;
+		font-weight: 700;
+		border-bottom:3px solid transparent;
+		&:hover, &:active, &.current{
+			border-bottom:3px solid $white;
+		}
 	}
 
 	ul {
@@ -132,10 +140,11 @@ HEADER STYLES
 	li {
 		display: inline-block;
 		margin-right: 50px;
-		line-height: 50px;
-
+		margin-bottom: 15px;
+		margin-top: 15px;
+		float: left;
 		&:last-child {
-			margin-right: 0;
+			float: right;
 		}
 	}
 }

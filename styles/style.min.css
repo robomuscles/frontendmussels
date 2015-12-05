@@ -48,7 +48,7 @@ table{border-collapse:collapse;border-spacing:0}
 .text-right{text-align:right}
 #inner-header,.map{text-align:center}
 .lowercase{text-transform:lowercase!important}
-a.link,button,label{text-transform:uppercase}
+#inner-header a,a.link,button,label{text-transform:uppercase}
 small{font-size:80%}
 strong{font-weight:600}
 .image-circle{border-radius:50%}
@@ -82,12 +82,14 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .h2,h2{font-size:1.75em;line-height:1.4em;margin-bottom:.375em}
 .h3,h3{font-size:1.75rem}
 .h4,h4{font-size:.875rem;font-weight:700}
-.header{background-color:#fffffe}
+.header{background-color:#347f7d}
+.home #inner-header .main-nav a#home{border-bottom:3px solid #fffffe}
 #inner-header{width:100%;padding:0 50px}
-#inner-header a{font-size:14px;color:#231f20}
+#inner-header a{font-size:14px;color:#fffffe;font-weight:700;border-bottom:3px solid transparent}
+#inner-header a.current,#inner-header a:active,#inner-header a:hover{border-bottom:3px solid #fffffe}
 #inner-header ul{margin:0}
-#inner-header li{display:inline-block;margin-right:50px;line-height:50px}
-#inner-header li:last-child{margin-right:0}
+#inner-header li{display:inline-block;margin-right:50px;margin-bottom:15px;margin-top:15px;float:left}
+#inner-header li:last-child{float:right}
 #logo{margin:.75em 0;display:none}
 #logo a{color:#fffffe}
 .main-nav{border-bottom:0;margin:0;display:none}
@@ -120,7 +122,7 @@ a.link:after,button:after{content:'\25B6';float:right;font-size:18px;padding-top
 a.link{width:100%}
 a.link:hover{text-decoration:none}
 label{font-size:18px}
-.dropdown-menu,.ui-select-match,.ui-select-match .btn span{font-size:20px}
+.btn span,.dropdown-menu,.ui-select-match,.ui-select-match .btn span{font-size:20px}
 label.begin{text-transform:none}
 .ui-select-match .btn{padding:3px 12px;color:#347f7d}
 .dropdown-menu{width:30%}
@@ -147,10 +149,3 @@ h2,h3,p{orphans:3;widows:3}
 h2,h3{page-break-after:avoid}
 .page-navigation,.respond-form,.sidebar,.wp-prev-next,nav{display:none}
 }
-
-
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 97617f00b7a1008d83c795b3395d25c38ab802fd

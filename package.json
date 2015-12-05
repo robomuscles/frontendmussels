@@ -1,8 +1,8 @@
 {
-  "name": "angularjs-boilerplate",
-  "version": "1.1.7",
+  "name": "angularjs-frontend",
+  "version": "1.0",
   "license": "MIT",
-  "description": "Simple AngularJS Boilerplate to kick start your new project with SASS support and Gulp watch/build tasks",
+  "description": "Front End site for Robo Muscles",
   "main": "app/app.js",
   "devDependencies": {
     "browser-sync": "^1.9.1",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jbutko/AngularJS-Boilerplate.git"
+    "url": "https://github.com/robomuscles/frontendmussels"
   },
   "keywords": [
     "angular",
@@ -53,9 +53,9 @@
     "spa"
   ],
   "author": "Jozef Butko",
-  "docs": "https://github.com/jbutko/AngularJS-Boilerplate/blob/master/README.md",
+  "docs": "https://github.com/robomuscles/frontendmussels/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/jbutko/AngularJS-Boilerplate/issues"
+    "url": "https://github.com/robomuscles/frontendmussels/issues"
   },
-  "homepage": "https://github.com/jbutko/AngularJS-Boilerplate"
+  "homepage": "https://github.com/robomuscles/frontendmussels/"
 }

@@ -1,3 +1,7 @@
+/**
+ * Results Page controller
+ *
+ */
 ;(function() {
 
 	angular
@@ -8,6 +12,9 @@
 
 
 	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
+
+		$scope.selectedInterval = undefined;
+		$scope.intervalOptions = ["daily", "monthly", "yearly"];
 
 		$scope.biomimic = $routeParams.biomimic;
 		$scope.region = $routeParams.region;
@@ -40,7 +47,11 @@
 		if($routeParams.waveexp && ($routeParams.waveexp != "All")){
 			queryURL += '&waveexp=' + $routeParams.waveexp;
 		}
-		console.log(queryURL);
+
+
+		// mathOp= min max avg
+		// interval = daily monthly yearly
+
 
 		QueryService.query('GET', queryURL, {}, {})
 		.then(function(resultData) {
