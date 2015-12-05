@@ -149,7 +149,6 @@
       QueryService.query('GET', url, {}, {})
       .then(function(waveExpOptions) {
         $scope.waveExpOptions = waveExpOptions.data.message;
-        debugger;
         if (waveExpOptions.data.message.length > 1) {
           $scope.waveExpOptions.unshift("All");
         }
