@@ -17,9 +17,9 @@
   function MainController($scope, LocalStorage, QueryService) {
 
     // 'controller as' syntax
-    
-    
-    
+
+
+
 
     // var $scope = this;
     $scope.filters = {};
@@ -38,7 +38,7 @@
       autoclose: true,
       weekstart: 0
     }
-    
+
 
     /**
      * Load some data
@@ -87,48 +87,70 @@
     // show zone options
     $scope.showZoneOptions = function () {
       $scope.filters.selectedZone = undefined;
-      var queries = '?biomimic=' + 
-      $scope.filters.selectedBiomimic + '&country=' + 
-      $scope.filters.selectedCountry + '&region=' + 
-      $scope.filters.selectedRegion + '&location=' + 
+      var queries = '?biomimic=' +
+      $scope.filters.selectedBiomimic + '&country=' +
+      $scope.filters.selectedCountry + '&region=' +
+      $scope.filters.selectedRegion + '&location=' +
       $scope.filters.selectedSite;
       var url = 'filter/zone' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(zoneOptions) {
         $scope.zoneOptions = zoneOptions.data.message;
+        if (zoneOptions.data.message.length > 1) {
+          $scope.zoneOptions.unshift("All");
+        }
       });
     };
 
     // show subzone options
     $scope.showSubzoneOptions = function () {
       $scope.filters.selectedSubzone = undefined;
-      var queries = '?biomimic=' + 
-      $scope.filters.selectedBiomimic + '&country=' + 
-      $scope.filters.selectedCountry + '&region=' + 
-      $scope.filters.selectedRegion + '&location=' + 
-      $scope.filters.selectedSite + '&zone=' + 
-      $scope.filters.selectedZone;
+      var queries =
+        '?biomimic=' + $scope.filters.selectedBiomimic +
+        '&country=' + $scope.filters.selectedCountry +
+        '&region=' + $scope.filters.selectedRegion +
+        '&location=' + $scope.filters.selectedSite;;
+
+      // include zone in query but only if it isn't All
+      if ($scope.filters.selectedZone != 'All') {
+        queries += '&zone=' + $scope.filters.selectedZone;
+      }
+
       var url = 'filter/subzone' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(subzoneOptions) {
         $scope.subzoneOptions = subzoneOptions.data.message;
+        if (subzoneOptions.data.message.length > 1) {
+          $scope.subzoneOptions.unshift("All");
+        }
       });
     };
 
     // show wave exposure options
     $scope.showWaveExpOptions = function () {
       $scope.filters.selectedWaveExp = undefined;
-      var queries = '?biomimic=' + 
-      $scope.filters.selectedBiomimic + '&country=' + 
-      $scope.filters.selectedCountry + '&region=' + 
-      $scope.filters.selectedRegion + '&location=' + 
-      $scope.filters.selectedSite + '&zone=' + 
-      $scope.filters.selectedZone + '&subzone=' + 
-      $scope.filters.selectedSubzone;
+      var queries =
+        '?biomimic=' + $scope.filters.selectedBiomimic +
+        '&country=' + $scope.filters.selectedCountry +
+        '&region=' + $scope.filters.selectedRegion +
+        '&location=' + $scope.filters.selectedSite;
+
+      // include zone in query but only if it isn't All
+      if ($scope.filters.selectedZone != 'All') {
+        queries += '&zone=' + $scope.filters.selectedZone;
+      }
+      // include subzone in query but only if it isn't All
+      if ($scope.filters.selectedSubzone != 'All') {
+        queries += '&subzone=' + $scope.filters.subzone;
+      }
+
       var url = 'filter/waveexp' + queries;
       QueryService.query('GET', url, {}, {})
       .then(function(waveExpOptions) {
         $scope.waveExpOptions = waveExpOptions.data.message;
+        if (waveExpOptions.data.message.length > 1) {
+          $scope.waveExpOptions.unshift("All");
+        }
       });
     };
 
@@ -138,16 +160,15 @@
 
       }
       else{
-        console.log($scope.filters.selectedWaveExp);
         var url = '#/results';
         var filterArray = [
         $scope.filters.selectedBiomimic,
-        $scope.filters.selectedCountry, 
+        $scope.filters.selectedCountry,
         $scope.filters.selectedRegion,
         $scope.filters.selectedSite,
         $scope.filters.selectedZone,
         $scope.filters.selectedSubzone,
-        $scope.filters.startDate, 
+        $scope.filters.startDate,
         $scope.filters.endDate,
         $scope.filters.selectedWaveExp]
         for (var i = 0; i < filterArray.length; i++){

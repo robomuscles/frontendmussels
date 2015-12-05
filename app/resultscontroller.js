@@ -5,7 +5,7 @@
 	.controller('ResultsController', ResultsController);
 
 	ResultsController.$inject = ['$scope', 'LocalStorage', 'QueryService', '$routeParams'];
-	
+
 
 	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
 
@@ -23,20 +23,24 @@
 		}
 
 		var self = this;
-		queryURL = 'data?biomimic=' +
-		$routeParams.biomimic +'&region=' +
-		$routeParams.region + '&zone=' +
-		$routeParams.zone + '&subzone=' +
-		$routeParams.subzone + '&startDate=' +
-		$routeParams.startDate + '&endDate=' +
-		$routeParams.endDate + '&country=' +
-		$routeParams.country + '&location=' + 
-		$routeParams.site;
-		if($routeParams.waveexp){
+		queryURL =
+			'data?biomimic=' + $routeParams.biomimic +
+			'&region=' + $routeParams.region +
+			'&startDate=' + $routeParams.startDate +
+			'&endDate=' + $routeParams.endDate +
+			'&country=' + $routeParams.country +
+			'&location=' + $routeParams.site;
+
+		if($routeParams.zone != "All"){
+			queryURL += '&zone=' + $routeParams.zone;
+		}
+		if($routeParams.subzone != "All"){
+			queryURL += '&subzone=' + $routeParams.subzone;
+		}
+		if($routeParams.waveexp && ($routeParams.waveexp != "All")){
 			queryURL += '&waveexp=' + $routeParams.waveexp;
 		}
 		console.log(queryURL);
-
 
 		QueryService.query('GET', queryURL, {}, {})
 		.then(function(resultData) {
@@ -47,7 +51,7 @@
 			} else{
 				$scope.alertType = "alert-success";
 				$scope.alertText = "Filtering Successful!";
-				
+
 
 				var array = $scope.resultData;
 
