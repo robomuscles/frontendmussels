@@ -151,34 +151,30 @@
     };
 
 
-    $scope.$watch('filters.endDate', function(value){
-      if($scope.filters.endDate==placeholderDate){
-
-      }
-      else{
-        var url = '#/results';
-        var start = new Date($scope.filters.startDate).toISOString().slice(0,10);
-        var end = new Date($scope.filters.endDate).toISOString().slice(0,10);
-        var filterArray = [
-        $scope.filters.selectedBiomimic,
-        $scope.filters.selectedCountry,
-        $scope.filters.selectedRegion,
-        $scope.filters.selectedSite,
-        $scope.filters.selectedZone,
-        $scope.filters.selectedSubzone,
-        start,
-        end,
-        $scope.filters.selectedWaveExp]
-        for (var i = 0; i < filterArray.length; i++){
-          if(!(filterArray[i] === "N/A")){
-            url+= "/" + encodeURIComponent(filterArray[i])
-          }
-
-
+    $scope.$watch('filters', function(value){
+      var url = '#/results';
+      var start = new Date($scope.filters.startDate).toISOString().slice(0,10);
+      var end = new Date($scope.filters.endDate).toISOString().slice(0,10);
+      var filterArray = [
+      $scope.filters.selectedBiomimic,
+      $scope.filters.selectedCountry,
+      $scope.filters.selectedRegion,
+      $scope.filters.selectedSite,
+      $scope.filters.selectedZone,
+      $scope.filters.selectedSubzone,
+      start,
+      end,
+      $scope.filters.selectedWaveExp]
+      for (var i = 0; i < filterArray.length; i++){
+        if(!(filterArray[i] === "N/A")){
+          url+= "/" + encodeURIComponent(filterArray[i])
         }
-        $('#results').html("<a class='link' href='"+url+"'>Filter Data</a>");
+
+
       }
-    });
+      $('#results').html("<a class='link' href='"+url+"'>Filter Data</a>");
+
+    }, true);
 
   }
 
