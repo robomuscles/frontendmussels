@@ -48,9 +48,12 @@
 			if($scope.resultData.length==0){
 				$scope.alertType = "alert-info";
 				$scope.alertText = "No data available.";
-			} else{
+				$scope.alertClass = "data-no";
+			} else {
 				$scope.alertType = "alert-success";
 				$scope.alertText = "Filtering Successful!";
+				$scope.alertClass = "data-success";
+
 
 
 				var array = $scope.resultData;

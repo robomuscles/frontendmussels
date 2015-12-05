@@ -52,3 +52,51 @@ label{
 .btn span{
 	font-size:20px;
 }
+
+.alert__filters {
+	font-size: 14px;
+	margin-top: 30px;
+}
+.alert__filter {
+	font-weight: 600;
+	display: inline-block;
+	width: 120px;
+}
+
+.margin-bottom {
+	margin-bottom: 10px;
+}
+
+.data-message,
+.no-data-message {
+	display: none;
+}
+
+.data-no {
+	.no-data-message {
+		display: block;
+	}
+}
+.data-success {
+	.data-message {
+		display: block;
+	}
+}
+.alert__filters {
+	display: none;
+}
+
+.data-no,
+.data-success {
+	.alert__filters {
+		display: block;
+	}
+}
+
+.download {
+	display: none;
+}
+.download.data-success {
+	display: block;
+}
+

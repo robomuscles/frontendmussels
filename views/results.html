@@ -1,11 +1,26 @@
-<h1>Biomimic Database > Download Data</h1>
+<h1>Data</h1>
 
-<div class="alert {{alertType}}">{{alertText}}</div>
-<p>
-	Your <strong>{{biomimic}}</strong> data from <strong>{{site}}, {{country}} </strong> at zone: <strong>{{zone}}</strong>, subzone: <strong>{{subzone}}</strong>, wave exposure: <strong>{{waveexp}}</strong> from <strong>{{startDate}}</strong> to <strong>{{endDate}}</strong> is ready for download
-</p>
+<div class="alert {{alertType}} {{alertClass}}">
+  <p class="no-data-message">
+    Unfortuneately, there is <strong>no data available</strong> for:
+  </p>
+  <p class="data-message">
+    Your data for the following options is ready to download:
+  </p>
+  <ul class="alert__filters">
+    <li><span class="alert__filter margin-bottom">Biomimic:</span> {{biomimic}}</li>
+    <li><span class="alert__filter">Country:</span> {{country}}</li>
+    <li><span class="alert__filter">Region:</span> {{region}}</li>
+    <li><span class="alert__filter margin-bottom">Site:</span> {{site}}</li>
+    <li><span class="alert__filter">Zone:</span> {{zone}}</li>
+    <li><span class="alert__filter">Subzone:</span> {{subzone}}</li>
+    <li><span class="alert__filter margin-bottom">Wave Exposure:</span> {{waveexp}}</li>
+    <li><span class="alert__filter">Start Date:</span> {{startDate}}</li>
+    <li><span class="alert__filter">End Date:</span> {{endDate}}</li>
+  </ul>
 
+</div>
 
-<div class="container filters" ng-controller="MainController">
+<div class="container filters download {{alertClass}}" ng-controller="MainController">
 	<button id="download"> Download Data </button>
 </div>
