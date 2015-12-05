@@ -111,20 +111,23 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 #logo,.main-nav{display:block}
 .hamburger,.responsive-nav{display:none}
 }
+h1{font-size:36px}
 .dimmed{opacity:.5}
 body{font-size:18px;font-family:Roboto,sans-serif}
 .row{margin-bottom:25px}
 .datepicker-days,input{color:#000}
+.ui-select-match .btn span{line-height:1.2;font-weight:600}
+.container{min-width:800px!important;width:100%!important;max-width:1200px!important}
 a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d}
 a.link:after,button:after{content:'\25B6';float:right;font-size:18px;padding-top:3px}
 a.link{width:100%}
 a.link:hover{text-decoration:none}
 label{font-size:18px}
-.dropdown-menu,.ui-select-match,.ui-select-match .btn span{font-size:20px}
+.btn span,.dropdown-menu,.ui-select-match,.ui-select-match .btn span{font-size:20px}
 label.begin{text-transform:none}
 .ui-select-match .btn{padding:3px 12px;color:#347f7d}
 .dropdown-menu{width:30%}
-.date input[type=text]{height:34px;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:0 12px;border:1px solid transparent;width:100%;color:#347f7d}
+.date input[type=text]{height:34px;font-weight:600;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:0 12px;border:1px solid transparent;width:100%;color:#347f7d}
 .alert__filter{font-weight:600;display:inline-block;width:120px}
 .margin-bottom{margin-bottom:10px}
 .data-message,.no-data-message{display:none}
@@ -147,10 +150,3 @@ h2,h3,p{orphans:3;widows:3}
 h2,h3{page-break-after:avoid}
 .page-navigation,.respond-form,.sidebar,.wp-prev-next,nav{display:none}
 }
-
-
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 97617f00b7a1008d83c795b3395d25c38ab802fd
