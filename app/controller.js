@@ -145,11 +145,9 @@
       }
 
       var url = 'filter/waveexp' + queries;
-      console.log(url);
       QueryService.query('GET', url, {}, {})
       .then(function(waveExpOptions) {
         $scope.waveExpOptions = waveExpOptions.data.message;
-        debugger;
         if (waveExpOptions.data.message.length > 1) {
           $scope.waveExpOptions.unshift("All");
         }
