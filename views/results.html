@@ -1,8 +1,7 @@
 <h1>Data</h1>
-
 <div class="alert {{alertType}} {{alertClass}}">
   <p class="no-data-message">
-    Unfortuneately, there is <strong>no data available</strong> for:
+    Unfortunately, there is <strong>no data available</strong> for:
   </p>
   <p class="data-message">
     Your data for the following options is ready to download:
@@ -21,33 +20,46 @@
 
 </div>
 <div class="row">
-<div class="col-xs-4">
-    <label class="begin">Select an Interval</label>
-          <ui-select ng-model="filters.selectedInterval"
-          ng-change="showCountryOptions()">
-          <ui-select-match>
-          {{$select.selected}}
-        </ui-select-match>
-        <ui-select-choices repeat="interval in (intervalOptions | filter: $select.search)">
-        {{interval}}
-      </ui-select-choices>
-    </ui-select>
-  </div>
   <div class="col-xs-4">
-  <label class="begin">Select an Interval</label>
-          <ui-select ng-model="filters.selectedInterval"
-          ng-change="showCountryOptions()">
-          <ui-select-match>
-          {{$select.selected}}
-        </ui-select-match>
-        <ui-select-choices repeat="interval in (intervalOptions | filter: $select.search)">
-        {{interval}}
-      </ui-select-choices>
-    </ui-select>
+    <div class="filters download {{alertClass}}" >
+     <button id="download-raw"> Download Raw Data </button>
+   </div>
+ </div>
+</div>
+<div class="{{alertClass}}">
+<p>If you want statistics on your data, you may optionally select the following:</p>
+<div class="row stat__filters">
+
+  <div class="col-xs-4">
+      <label class="begin">Select an Interval</label>
+            <ui-select ng-model="filters.selectedInterval"
+            ng-change="showCountryOptions()">
+            <ui-select-match>
+            {{$select.selected}}
+          </ui-select-match>
+          <ui-select-choices repeat="interval in (intervalOptions | filter: $select.search)">
+          {{interval}}
+        </ui-select-choices>
+      </ui-select>
+    </div>
+    <div class="col-xs-4">
+    <label class="begin">Select Max, Min, or Avg</label>
+            <ui-select ng-model="filters.selectedStat"
+            ng-change="showCountryOptions()">
+            <ui-select-match>
+            {{$select.selected}}
+          </ui-select-match>
+          <ui-select-choices repeat="stat in (statOptions | filter: $select.search)">
+          {{stat}}
+        </ui-select-choices>
+      </ui-select>
+    </div>
   </div>
 </div>
-
-
-<div class="container filters download {{alertClass}}" ng-controller="MainController">
-	<button id="download"> Download Raw Data </button>
+<div class="row">
+ <div class="col-xs-4">
+  <div class="filters download {{statClass}}" ng-controller="MainController">
+   <button id="download-stat"> Download Statistical Data </button>
+ </div>
+ </div>
 </div>

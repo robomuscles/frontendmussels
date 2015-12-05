@@ -138,6 +138,8 @@ label.begin{text-transform:none}
 .data-no .alert__filters,.data-success .alert__filters{display:block}
 .download{display:none}
 .download.data-success{display:block}
+.data-no.stat__filters,.hide-stat{display:none}
+.view-stat{display:block}
 @media print{blockquote,img,pre,tr{page-break-inside:avoid}
 *{background:0 0!important;color:#000!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important}
 a,a:visited{color:#444!important;text-decoration:underline}

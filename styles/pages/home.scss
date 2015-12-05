@@ -52,6 +52,7 @@ button, a.link{
 	border-radius: 5px;
 	border: none;
 	border-bottom: 2px solid $aqua;
+	width: 100%;
 	&:after{
 		content: '\25B6';
 		float: right;
@@ -152,3 +153,12 @@ label{
 	display: block;
 }
 
+.data-no.stat__filters{
+	display:none;
+}
+.hide-stat{
+	display:none;
+}
+.view-stat{
+	display:block;
+}

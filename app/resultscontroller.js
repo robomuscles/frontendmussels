@@ -2,72 +2,66 @@
  * Results Page controller
  *
  */
-;(function() {
+ ;(function() {
 
-	angular
-	.module('boilerplate')
-	.controller('ResultsController', ResultsController);
+ 	angular
+ 	.module('boilerplate')
+ 	.controller('ResultsController', ResultsController);
 
-	ResultsController.$inject = ['$scope', 'LocalStorage', 'QueryService', '$routeParams'];
+ 	ResultsController.$inject = ['$scope', 'LocalStorage', 'QueryService', '$routeParams'];
 
 
-	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
+ 	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
 
-		$scope.selectedInterval = undefined;
-		$scope.intervalOptions = ["daily", "monthly", "yearly"];
+ 		$('body').removeClass('home');
 
-		$scope.biomimic = $routeParams.biomimic;
-		$scope.region = $routeParams.region;
-		$scope.zone = $routeParams.zone;
-		$scope.subzone = $routeParams.subzone;
-		$scope.startDate = $routeParams.startDate;
-		$scope.endDate = $routeParams.endDate;
-		$scope.country = $routeParams.country;
-		$scope.site = $routeParams.site;
-		$scope.waveexp = 'N/A';
-		if($routeParams.waveexp){
-			$scope.waveexp = $routeParams.waveexp;
-		}
+ 		$scope.filters = {};
+ 		$scope.filters.selectedInterval = undefined;
+ 		$scope.intervalOptions = ["daily", "monthly", "yearly"];
 
-		var self = this;
-		queryURL =
-			'data?biomimic=' + $routeParams.biomimic +
-			'&region=' + $routeParams.region +
-			'&startDate=' + $routeParams.startDate +
-			'&endDate=' + $routeParams.endDate +
-			'&country=' + $routeParams.country +
-			'&location=' + $routeParams.site;
+ 		$scope.filters.selectedStat = undefined;
+ 		$scope.statOptions = ["max", "min", "avg"];
 
-		if($routeParams.zone != "All"){
-			queryURL += '&zone=' + $routeParams.zone;
-		}
-		if($routeParams.subzone != "All"){
-			queryURL += '&subzone=' + $routeParams.subzone;
-		}
-		if($routeParams.waveexp && ($routeParams.waveexp != "All")){
-			queryURL += '&waveexp=' + $routeParams.waveexp;
-		}
+ 		$scope.statClass = "hide-stat";
+ 		$scope.biomimic = $routeParams.biomimic;
+ 		$scope.region = $routeParams.region;
+ 		$scope.zone = $routeParams.zone;
+ 		$scope.subzone = $routeParams.subzone;
+ 		$scope.startDate = $routeParams.startDate;
+ 		$scope.endDate = $routeParams.endDate;
+ 		$scope.country = $routeParams.country;
+ 		$scope.site = $routeParams.site;
+ 		$scope.waveexp = 'N/A';
+ 		if($routeParams.waveexp){
+ 			$scope.waveexp = $routeParams.waveexp;
+ 		}
+
+ 		var self = this;
+ 		queryURL =
+ 		'data?biomimic=' + $routeParams.biomimic +
+ 		'&region=' + $routeParams.region +
+ 		'&startDate=' + $routeParams.startDate +
+ 		'&endDate=' + $routeParams.endDate +
+ 		'&country=' + $routeParams.country +
+ 		'&location=' + $routeParams.site;
+
+ 		if($routeParams.zone != "All"){
+ 			queryURL += '&zone=' + $routeParams.zone;
+ 		}
+ 		if($routeParams.subzone != "All"){
+ 			queryURL += '&subzone=' + $routeParams.subzone;
+ 		}
+ 		if($routeParams.waveexp && ($routeParams.waveexp != "All")){
+ 			queryURL += '&waveexp=' + $routeParams.waveexp;
+ 		}
 
 
 		// mathOp= min max avg
 		// interval = daily monthly yearly
 
 
-		QueryService.query('GET', queryURL, {}, {})
-		.then(function(resultData) {
-			$scope.resultData = resultData.data.message;
-			if($scope.resultData.length==0){
-				$scope.alertType = "alert-info";
-				$scope.alertText = "No data available.";
-				$scope.alertClass = "data-no";
-			} else {
-				$scope.alertType = "alert-success";
-				$scope.alertText = "Filtering Successful!";
-				$scope.alertClass = "data-success";
-
-
-
-				var array = $scope.resultData;
+		$scope.toCSV = function(data){
+			var array = data;
 
 				var str = '';
 				var line = '';
@@ -104,15 +98,49 @@
 					line = line.slice(0, -1);
 					str += line + '\r\n';
 				}
-				$scope.CSVdata = str;
 				return str;
+			};
+
+
+
+
+		QueryService.query('GET', queryURL, {}, {})
+		.then(function(resultData) {
+			$scope.resultData = resultData.data.message;
+			if($scope.resultData.length==0){
+				$scope.alertType = "alert-info";
+				$scope.alertText = "No data available.";
+				$scope.alertClass = "data-no";
+			} else {
+				$scope.alertType = "alert-success";
+				$scope.alertText = "Filtering Successful!";
+				$scope.alertClass = "data-success";
+
+				$scope.rawData = $scope.toCSV($scope.resultData);
 			}
 
 		});
 
-		$('#download').on('click', function(){
-			window.open("data:text/csv;charset=utf-8," + escape($scope.CSVdata));
-		});
+	$scope.$watch('filters', function(value){
+		if(!($scope.filters.selectedInterval === undefined) && !($scope.filters.selectedStat === undefined)){
+			statQueryURL = queryURL + "&interval=" + $scope.filters.selectedInterval
+			+ "&mathOp=" + $scope.filters.selectedStat;
+			QueryService.query('GET', statQueryURL, {}, {})
+			.then(function(statData){
+				$scope.statData = statData.data.message;
+				$scope.statCSV = $scope.toCSV($scope.statData);
+				$scope.statClass = "view-stat";
+			});
+		}
+
+	}, true);
+$('#download-raw').on('click', function(){
+	window.open("data:text/csv;charset=utf-8," + escape($scope.CSVdata));
+});
+
+$('#download-stat').on('click', function(){
+	window.open("data:text/csv;charset=utf-8," + escape($scope.statCSV));
+});
 
 
 
