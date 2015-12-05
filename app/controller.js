@@ -141,13 +141,15 @@
       }
       // include subzone in query but only if it isn't All
       if ($scope.filters.selectedSubzone != 'All') {
-        queries += '&subzone=' + $scope.filters.subzone;
+        queries += '&subzone=' + $scope.filters.selectedSubzone;
       }
 
       var url = 'filter/waveexp' + queries;
+      console.log(url);
       QueryService.query('GET', url, {}, {})
       .then(function(waveExpOptions) {
         $scope.waveExpOptions = waveExpOptions.data.message;
+        debugger;
         if (waveExpOptions.data.message.length > 1) {
           $scope.waveExpOptions.unshift("All");
         }
