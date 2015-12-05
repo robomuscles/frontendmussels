@@ -29,8 +29,8 @@
     $scope.filters.selectedZone = undefined;
     $scope.filters.selectedSubzone = undefined;
     $scope.filters.selectedWaveExp = undefined;
-    $scope.filters.startDate = undefined;
-    $scope.filters.endDate = undefined;
+    $scope.filters.startDate = new Date();
+    $scope.filters.endDate = new Date();
 
     $scope.datepickerOptions =
     {

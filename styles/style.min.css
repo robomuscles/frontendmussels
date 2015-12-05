@@ -111,12 +111,14 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .hamburger,.responsive-nav{display:none}
 }
 .dimmed{opacity:.5}
-body{font-size:14px}
+body{font-size:18px}
 .datepicker-days,input{color:#000}
 a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;text-transform:uppercase;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d}
 label{font-size:18px}
-.btn span,.dropdown-menu,.ui-select-match{font-size:20px}
+.dropdown-menu,.ui-select-match,.ui-select-match .btn span{font-size:20px}
+.ui-select-match .btn{padding:3px 12px}
 .dropdown-menu{width:30%}
+.date input[type=text]{height:34px;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:0 12px;border:1px solid transparent;width:100%}
 @media print{blockquote,img,pre,tr{page-break-inside:avoid}
 *{background:0 0!important;color:#000!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important}
 a,a:visited{color:#444!important;text-decoration:underline}

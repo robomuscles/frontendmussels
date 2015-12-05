@@ -136,6 +136,9 @@
       <label>End Date</label>
       <input ng-change="showResults()" id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="filters.endDate">
     </div>
+    <div class="col-xs-12">
+      <p>Data will show from <strong>12:00am GMT on <strong>{{filters.startDate}}</strong></strong></p>
+    </div>
   </div>
 
 <div id="results" >
