@@ -5,9 +5,10 @@
 </div> -->
 
 <div class="container filters" ng-controller="MainController">
+
   <div class="row">
     <div class="col-xs-4">
-      <label>To get started, select a Biomimic</label>
+      <label class="begin">To get started, select a Biomimic</label>
       <ui-select ng-model="filters.selectedBiomimic"
       ng-change="showCountryOptions()">
       <ui-select-match>
@@ -137,11 +138,11 @@
       <input ng-change="showResults()" id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="filters.endDate">
     </div>
     <div class="col-xs-12">
-      <p>Data will show from <strong>12:00am GMT on <strong>{{filters.startDate}}</strong></strong></p>
+      <p>Data will show from <strong>12:00am GMT</strong> on <strong>{{filters.startDate | date: 'MMMM d, y'}}</strong> to <strong>11:59pm GMT</strong> on <strong>{{filters.endDate | date:'MMMM d, y'}}.</strong></p>
     </div>
   </div>
-
-<div id="results" >
-</div>
-
+  <div class="row">
+    <div class="col-xs-4" id="results" >
+    </div>
+  </div>
 </div>

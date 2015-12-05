@@ -21,7 +21,7 @@
 
 
 
-    // var $scope = this;
+    var placeholderDate = new Date();
     $scope.filters = {};
     $scope.filters.selectedBiomimic = undefined;
     $scope.filters.selectedCountry = undefined;
@@ -29,12 +29,12 @@
     $scope.filters.selectedZone = undefined;
     $scope.filters.selectedSubzone = undefined;
     $scope.filters.selectedWaveExp = undefined;
-    $scope.filters.startDate = new Date();
-    $scope.filters.endDate = new Date();
+    $scope.filters.startDate = placeholderDate;
+    $scope.filters.endDate = placeholderDate;
 
     $scope.datepickerOptions =
     {
-      format: 'yyyy-mm-dd',
+      format: 'MM d, yyyy',
       autoclose: true,
       weekstart: 0
     }
@@ -156,11 +156,13 @@
 
 
     $scope.$watch('filters.endDate', function(value){
-      if($scope.filters.endDate==undefined){
+      if($scope.filters.endDate==placeholderDate){
 
       }
       else{
         var url = '#/results';
+        var start = new Date($scope.filters.startDate).toISOString().slice(0,10);
+        var end = new Date($scope.filters.endDate).toISOString().slice(0,10);
         var filterArray = [
         $scope.filters.selectedBiomimic,
         $scope.filters.selectedCountry,
@@ -168,17 +170,17 @@
         $scope.filters.selectedSite,
         $scope.filters.selectedZone,
         $scope.filters.selectedSubzone,
-        $scope.filters.startDate,
-        $scope.filters.endDate,
+        start,
+        end,
         $scope.filters.selectedWaveExp]
         for (var i = 0; i < filterArray.length; i++){
           if(!(filterArray[i] === "N/A")){
-            url+= "/" + encodeURIComponent(filterArray[i].trim())
+            url+= "/" + encodeURIComponent(filterArray[i])
           }
 
 
         }
-        $('#results').html("<a class='link' href='"+url+"'>Go Here!</a>");
+        $('#results').html("<a class='link' href='"+url+"'>Filter Data</a>");
       }
     });
 

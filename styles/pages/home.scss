@@ -16,9 +16,10 @@
 }
 body{
 	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
 }
 .row{
-	margin-bottom:10px
+	margin-bottom:25px
 }
 
 .datepicker-days{
@@ -40,16 +41,33 @@ button, a.link{
 	border-radius: 5px;
 	border: none;
 	border-bottom: 2px solid $aqua;
+	&:after{
+		content: '\25B6';
+		float: right;
+		font-size: 18px;
+		padding-top:3px;
+	}
+}
+a.link{
+	width: 100%;
+	&:hover{
+		text-decoration: none;
+	}
 }
 
 label{
 	font-size:18px;
+	text-transform: uppercase;
+	&.begin{
+		text-transform: none;
+	}
 }
 .ui-select-match{
 	font-size:20px;
 
 	.btn{
 		padding: 3px 12px;
+		color: $aqua;
 		span{
 			font-size: 20px;
 		}
@@ -67,5 +85,6 @@ label{
 	padding: 0 12px;
 	border:1px solid transparent;
 	width: 100%;
+	color: $aqua;
 
 }
