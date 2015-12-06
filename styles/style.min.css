@@ -120,7 +120,7 @@ body{font-size:18px;font-family:Roboto,sans-serif}
 .datepicker-days,input{color:#000}
 .ui-select-match .btn span{line-height:1.2;font-weight:600}
 .container{min-width:800px!important;width:100%!important;max-width:1200px!important}
-a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d}
+a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d;width:100%}
 a.link:after,button:after{content:'\25B6';float:right;font-size:18px;padding-top:3px}
 a.link{width:100%}
 a.link:hover{text-decoration:none}

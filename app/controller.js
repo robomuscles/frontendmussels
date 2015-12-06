@@ -51,6 +51,11 @@
     // country options
     $scope.showCountryOptions = function () {
       $scope.filters.selectedCountry = undefined;
+      $scope.filters.selectedRegion = undefined;
+      $scope.filters.selectedSite = undefined;
+      $scope.filters.selectedZone = undefined;
+      $scope.filters.selectedSubzone = undefined;
+      $scope.filters.selectedWaveExp = undefined;
       console.log($scope.filters.selectedBiomimic);
       QueryService.query('GET', 'filter/country?biomimic=' + $scope.filters.selectedBiomimic, {}, {})
       .then(function(countryOptions) {
@@ -62,6 +67,10 @@
     // region options
     $scope.showRegionOptions = function () {
       $scope.filters.selectedRegion = undefined;
+      $scope.filters.selectedSite = undefined;
+      $scope.filters.selectedZone = undefined;
+      $scope.filters.selectedSubzone = undefined;
+      $scope.filters.selectedWaveExp = undefined;
       var url = 'filter/region?biomimic=' + $scope.filters.selectedBiomimic + '&country=' + $scope.filters.selectedCountry;
       QueryService.query('GET', url, {}, {})
       .then(function(regionOptions) {
@@ -72,6 +81,9 @@
     // site site options
     $scope.showSiteOptions = function () {
       $scope.filters.selectedSite = undefined;
+      $scope.filters.selectedZone = undefined;
+      $scope.filters.selectedSubzone = undefined;
+      $scope.filters.selectedWaveExp = undefined;
       var queries = '?biomimic=' + $scope.filters.selectedBiomimic + '&country=' + $scope.filters.selectedCountry + '&region=' + $scope.filters.selectedRegion;
       var url = 'filter/location' + queries;
       QueryService.query('GET', url, {}, {})
@@ -83,6 +95,8 @@
     // show zone options
     $scope.showZoneOptions = function () {
       $scope.filters.selectedZone = undefined;
+      $scope.filters.selectedSubzone = undefined;
+      $scope.filters.selectedWaveExp = undefined;
       var queries = '?biomimic=' +
       $scope.filters.selectedBiomimic + '&country=' +
       $scope.filters.selectedCountry + '&region=' +
@@ -101,6 +115,7 @@
     // show subzone options
     $scope.showSubzoneOptions = function () {
       $scope.filters.selectedSubzone = undefined;
+      $scope.filters.selectedWaveExp = undefined;
       var queries =
         '?biomimic=' + $scope.filters.selectedBiomimic +
         '&country=' + $scope.filters.selectedCountry +
