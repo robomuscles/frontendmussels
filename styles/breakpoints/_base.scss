@@ -117,7 +117,6 @@ HEADER STYLES
 }
 #inner-header {
 	width: 100%;
-	padding: 0 50px;
 	text-align: center;
 
 	a {
@@ -126,6 +125,7 @@ HEADER STYLES
 		text-transform: uppercase;
 		font-weight: 700;
 		border-bottom:3px solid transparent;
+		padding: .75em 0;
 		&:hover, &:active, &.current{
 			border-bottom:3px solid $white;
 		}
