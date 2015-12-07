@@ -84,7 +84,7 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 .h4,h4{font-size:.875rem;font-weight:700}
 .header{background-color:#347f7d}
 .home #inner-header a#home{border-bottom:3px solid #fffffe}
-#inner-header a{font-size:14px;color:#fffffe;font-weight:700;border-bottom:3px solid transparent}
+#inner-header a{font-size:14px;color:#fffffe;font-weight:700;border-bottom:3px solid transparent;padding:.75em 0}
 #inner-header a.current,#inner-header a:active,#inner-header a:hover{border-bottom:3px solid #fffffe}
 #inner-header ul{margin:0}
 #inner-header li{display:inline-block;margin-right:50px;margin-bottom:15px;margin-top:15px;float:left}
