@@ -1,44 +1,19 @@
-// .select {
-//   min-width: 300px;
-// }
-
-// .select2 > .select2-choice.ui-select-match {
-//   /* Because of the inclusion of Bootstrap */
-//   height: 29px;
-// }
-
-// .selectize-control > .selectize-dropdown {
-//   top: 36px;
-// }
-h1 {
-	font-size: 36px;
-}
-
-.dimmed {
-  opacity: 0.5;
-}
 body{
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
 }
-.row{
-	margin-bottom:25px
-}
-
-.datepicker-days{
-	color:black;
+h1 {
+	font-size: 36px;
 }
 input{
 	color:black;
 }
-.ui-select-match .btn span {
-	 line-height: 1.2;
-	 font-weight: 600;
-}
-.container {
-	min-width: 800px !important;
-	width: 100% !important;
-	max-width: 1200px !important;
+label{
+	font-size:18px;
+	text-transform: uppercase;
+	&.begin{
+		text-transform: none;
+	}
 }
 button, a.link{
 	color: $aqua;
@@ -66,13 +41,31 @@ a.link{
 		text-decoration: none;
 	}
 }
+.container {
+	min-width: 800px !important;
+	width: 100% !important;
+	max-width: 1200px !important;
+}
+.margin-bottom {
+	margin-bottom: 10px;
+}
+.datepicker-days{
+	color:black;
+}
+.date input[type=text]{
+	height: 34px;
+	font-weight: 600;
+	border-radius:4px;
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
+	padding: 0 12px;
+	border:1px solid transparent;
+	width: 100%;
+	color: $aqua;
 
-label{
-	font-size:18px;
-	text-transform: uppercase;
-	&.begin{
-		text-transform: none;
-	}
+}
+.ui-select-match .btn span {
+	 line-height: 1.2;
+	 font-weight: 600;
 }
 .ui-select-match{
 	font-size:20px;
@@ -85,27 +78,19 @@ label{
 		}
 	}
 }
+.row{
+	margin-bottom:25px
+}
+.dimmed {
+  opacity: 0.5;
+}
 .dropdown-menu{
 	font-size:20px;
 	width: 30%;
-
-}
-
-.date input[type=text]{
-	height: 34px;
-	font-weight: 600;
-	border-radius:4px;
-	box-shadow:inset 0 1px 1px rgba(0, 0, 0, .075);
-	padding: 0 12px;
-	border:1px solid transparent;
-	width: 100%;
-	color: $aqua;
-
 }
 .btn span{
 	font-size:20px;
 }
-
 .alert__filters {
 	font-size: 14px;
 	margin-top: 30px;
@@ -115,16 +100,10 @@ label{
 	display: inline-block;
 	width: 120px;
 }
-
-.margin-bottom {
-	margin-bottom: 10px;
-}
-
 .data-message,
 .no-data-message {
 	display: none;
 }
-
 .data-no {
 	.no-data-message {
 		display: block;
@@ -138,21 +117,18 @@ label{
 .alert__filters {
 	display: none;
 }
-
 .data-no,
 .data-success {
 	.alert__filters {
 		display: block;
 	}
 }
-
 .download {
 	display: none;
 }
 .download.data-success {
 	display: block;
 }
-
 .data-no.stat__filters{
 	display:none;
 }

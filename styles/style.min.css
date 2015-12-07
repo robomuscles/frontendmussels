@@ -47,7 +47,7 @@ table{border-collapse:collapse;border-spacing:0}
 .text-center{text-align:center}
 .text-right{text-align:right}
 .lowercase{text-transform:lowercase!important}
-#inner-header a,a.link,button,label{text-transform:uppercase}
+#inner-header a,label{text-transform:uppercase}
 small{font-size:80%}
 strong{font-weight:600}
 .image-circle{border-radius:50%}
@@ -113,25 +113,26 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 #logo,.main-nav{display:block}
 .hamburger,.responsive-nav{display:none}
 }
-h1{font-size:36px}
-.dimmed{opacity:.5}
 body{font-size:18px;font-family:Roboto,sans-serif}
-.row{margin-bottom:25px}
-.datepicker-days,input{color:#000}
-.ui-select-match .btn span{line-height:1.2;font-weight:600}
-.container{min-width:800px!important;width:100%!important;max-width:1200px!important}
-a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d;width:100%}
+h1{font-size:36px}
+input{color:#000}
+label{font-size:18px}
+label.begin{text-transform:none}
+a.link,button{color:#347f7d;font-size:1.2em;font-weight:700;text-transform:uppercase;background-color:#c3f4ee;padding:5px 15px;display:inline-block;margin:5px 0;border-radius:5px;border:none;border-bottom:2px solid #347f7d;width:100%}
 a.link:after,button:after{content:'\25B6';float:right;font-size:18px;padding-top:3px}
+.btn span,.dropdown-menu,.ui-select-match{font-size:20px}
 a.link{width:100%}
 a.link:hover{text-decoration:none}
-label{font-size:18px}
-.btn span,.dropdown-menu,.ui-select-match,.ui-select-match .btn span{font-size:20px}
-label.begin{text-transform:none}
-.ui-select-match .btn{padding:3px 12px;color:#347f7d}
-.dropdown-menu{width:30%}
-.date input[type=text]{height:34px;font-weight:600;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:0 12px;border:1px solid transparent;width:100%;color:#347f7d}
-.alert__filter{font-weight:600;display:inline-block;width:120px}
+.container{min-width:800px!important;width:100%!important;max-width:1200px!important}
 .margin-bottom{margin-bottom:10px}
+.datepicker-days{color:#000}
+.date input[type=text]{height:34px;font-weight:600;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);padding:0 12px;border:1px solid transparent;width:100%;color:#347f7d}
+.ui-select-match .btn span{line-height:1.2;font-weight:600;font-size:20px}
+.ui-select-match .btn{padding:3px 12px;color:#347f7d}
+.row{margin-bottom:25px}
+.dimmed{opacity:.5}
+.dropdown-menu{width:30%}
+.alert__filter{font-weight:600;display:inline-block;width:120px}
 .data-message,.no-data-message{display:none}
 .data-no .no-data-message,.data-success .data-message{display:block}
 .alert__filters{font-size:14px;margin-top:30px;display:none}
