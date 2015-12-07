@@ -115,7 +115,6 @@
 				$scope.alertType = "alert-success";
 				$scope.alertText = "Filtering Successful!";
 				$scope.alertClass = "data-success";
-
 				$scope.rawData = $scope.toCSV($scope.resultData);
 			}
 
@@ -134,8 +133,10 @@
 		}
 
 	}, true);
+
+
 $('#download-raw').on('click', function(){
-	window.open("data:text/csv;charset=utf-8," + escape($scope.CSVdata));
+	window.open("data:text/csv;charset=utf-8," + escape($scope.rawData));
 });
 
 $('#download-stat').on('click', function(){
