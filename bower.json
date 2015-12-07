@@ -1,10 +1,7 @@
 {
-  "name": "Robo Mussels",
+  "name": "Biomimics",
   "version": "1.0",
-  "authors": [
-    "jozef butko <jbutko@gmail.com> / jozefbutko.com/resume"
-  ],
-  "description": "Description goes here",
+  "description": "Database for Northeastern's Helmuth Lab",
   "main": "app.js",
   "keywords": [
     "angularjs"

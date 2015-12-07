@@ -165,7 +165,7 @@
       });
     };
 
-
+    // update the filter url whenever a filter changes
     $scope.$watch('filters', function(value){
       var url = '#/results';
       var start = new Date($scope.filters.startDate).toISOString().slice(0,10);

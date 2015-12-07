@@ -13,8 +13,10 @@
 
  	function ResultsController($scope, LocalStorage, QueryService, $routeParams) {
 
+ 		// remove class home from results page
  		$('body').removeClass('home');
 
+ 		// set variables
  		$scope.filters = {};
  		$scope.filters.selectedInterval = undefined;
  		$scope.intervalOptions = ["daily", "monthly", "yearly"];
@@ -37,6 +39,8 @@
  		}
 
  		var self = this;
+
+ 		// build the url to query the database
  		queryURL =
  		'data?biomimic=' + $routeParams.biomimic +
  		'&region=' + $routeParams.region +
@@ -60,6 +64,7 @@
 		// interval = daily monthly yearly
 
 
+		// turn data into csv
 		$scope.toCSV = function(data){
 			var array = data;
 
@@ -102,8 +107,7 @@
 			};
 
 
-
-
+		// query the database
 		QueryService.query('GET', queryURL, {}, {})
 		.then(function(resultData) {
 			$scope.resultData = resultData.data.message;
@@ -120,6 +124,7 @@
 
 		});
 
+	// if min/max filters change then update the query url
 	$scope.$watch('filters', function(value){
 		if(!($scope.filters.selectedInterval === undefined) && !($scope.filters.selectedStat === undefined)){
 			statQueryURL = queryURL + "&interval=" + $scope.filters.selectedInterval
@@ -134,17 +139,15 @@
 
 	}, true);
 
-
+// download the raw data when click on button
 $('#download-raw').on('click', function(){
 	window.open("data:text/csv;charset=utf-8," + escape($scope.rawData));
 });
 
+// download min, max, or avg data when click on other button
 $('#download-stat').on('click', function(){
 	window.open("data:text/csv;charset=utf-8," + escape($scope.statCSV));
 });
-
-
-
 
 
 
